@@ -10,10 +10,13 @@ class Menu:
     def __init__(self, menu):
         self.running = True
         self.menu = menu
-        self.surf = pygame.image.load('./graphics/wivern.jpg')
+        self.surf = pygame.image.load('./graphics/fundo.jpg')
         self.rect = self.surf.get_rect(left=0, top=0)
+        self.surf_mage = pygame.image.load('./graphics/mago_marrom.png')
+        self.rect_mage =self.surf_mage.get_rect(left =20, top = 200)
 
     def run(self):
+        menu_option = 0
         try:
             pygame.mixer.music.load('./sounds/ni_idea.wav')  # Carrega o áudio
             pygame.mixer.music.play(-1)  # Reproduz em loop infinito
@@ -25,14 +28,44 @@ class Menu:
                 if event.type == pygame.QUIT:
                     self.running = False  # Sai do loop quando a janela for fechada
                     quit()
+                #Menu interativo com mouse
+                if event.type == pygame.MOUSEMOTION:
+                    mouse_pos = event.pos
+
+                    if mouse_pos[1] < 180:
+                        menu_option = 0
+                    elif 181 <= mouse_pos[1] < 250:
+                        menu_option = 1
+                    else:
+                        menu_option = 2
+
+                if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:  # Clique esquerdo
+                    return MENU_OPTION[menu_option]
+
+                #Menu interativo com teclado
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_DOWN:
+                        menu_option += 1
+                        if menu_option > 2:
+                           menu_option = 0
+                    if event.key == pygame.K_UP:
+                        menu_option -= 1
+                        if menu_option < 0:
+                           menu_option = 2
+                    if event.key == pygame.K_RETURN:
+                        return MENU_OPTION[menu_option]
+
 
             self.menu.blit(source=self.surf, dest=self.rect)  # Desenha a imagem na tela
+            self.menu.blit(source=self.surf_mage, dest=self.rect_mage)
             self.menu_text(50, "Running", COLOR_TEXT_RED, (360, 75))
-            self.menu_text(50, "Mage", COLOR_TEXT_RED, (360, 105))
+            self.menu_text(50, "Mage", COLOR_TEXT_RED, (360, 120))
 
             for i in range(len(MENU_OPTION)):
-                self.menu_text(40, MENU_OPTION[i], COLOR_TEXT_WHITE , (360, 180 + 40* i))
-
+                if i == menu_option:
+                    self.menu_text(40, MENU_OPTION[i], COLOR_TEXT_RED , (360, 180 + 40*i))
+                else:
+                    self.menu_text(40, MENU_OPTION[i], COLOR_TEXT_WHITE, (360, 180 + 40 * i))
 
             pygame.display.flip()  # Atualiza a tela
 
