@@ -4,14 +4,15 @@ COLOR_TEXT_WHITE = (255, 255, 255)
 
 # E
 ENTITY_SPEED = {
-    'level1Bg0': 0,
-    'level1Bg1': 1,
-    'level1Bg2': 2,
-    'level1Bg3': 3,
-    'level1Bg4': 4,
-    'level1Bg5': 5,
-    'level1Bg6': 6,
-    'level1Bg7': 7,
+    'level1bg0.png': 0,
+    'level1bg1.png': 1,
+    'level1bg2.png': 2,
+    'level1bg3.png': 3,
+    'level1bg4.png': 4,
+    'level1bg5.png': 5,
+    'level1bg6.png': 6,
+    'level1bg7.png': 7,
+
 }
 #
 MENU_OPTION =('Start',
@@ -20,5 +21,5 @@ MENU_OPTION =('Start',
 )
 
 #W
-WIN_HEIGHT = 500
-WIN_WEIGHT = 300
+WIN_HEIGHT = 576
+WIN_WEIGHT = 324

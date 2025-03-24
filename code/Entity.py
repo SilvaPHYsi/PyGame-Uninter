@@ -1,10 +1,12 @@
-import os
+from abc import ABC, abstractmethod
+
 from abc import ABC, abstractmethod
 
 import pygame.image
 
 
 class Entity:
+
     def __init__(self, name: str, position: tuple):
         self.name = name
         self.surf = pygame.image.load('./graphics/' + name).convert_alpha()
@@ -12,5 +14,5 @@ class Entity:
         self.speed = 0
 
     @abstractmethod
-    def move(self,):
+    def move(self, ):
         pass

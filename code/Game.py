@@ -27,7 +27,6 @@ class Game:
                 level.run()
             elif menu_return == MENU_OPTION[2]:
                 self.running = False  # Alterando para finalizar o jogo ao escolher sair do menu
-
         pygame.quit()  # Finaliza o Pygame de forma segura após sair do loop principal
 
 
