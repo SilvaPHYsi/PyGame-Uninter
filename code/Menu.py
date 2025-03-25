@@ -10,7 +10,7 @@ class Menu:
     def __init__(self, menu):
         self.running = True
         self.menu = menu
-        self.surf = pygame.image.load('./graphics/fundo.jpg')
+        self.surf = pygame.image.load('./graphics/fundo2.png')
         self.rect = self.surf.get_rect(left=0, top=0)
         self.surf_mage = pygame.image.load('./graphics/mago_marrom.png')
         self.rect_mage =self.surf_mage.get_rect(left =20, top = 200)

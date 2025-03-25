@@ -1,4 +1,6 @@
 from code.Background import Background
+from code.Enemy import Enemy
+from code.Player import Player
 from code.const import WIN_WEIGHT, WIN_HEIGHT
 
 
@@ -15,6 +17,16 @@ class EntityFactory:
                     list_bg.append(Background(f'level1bg{i}.png', (0, 0)))  # Primeira posição
                     list_bg.append(Background(f'level1bg{i}.png', (WIN_HEIGHT, 0)))  # Segunda posição
                 return list_bg
-            case _:
-                return []  # Caso não encontre o nome, retorna uma lista vazia
+            case 'Player':
+                list_pl = []
+                for i in range(8):
+                    list_pl.append(Player(f'Player{i}.png', (0, 174)))
+                return list_pl
+            case 'enemy':
+                list_en = []
+                for i in range(8):
+                    list_en.append(Enemy(f'enemy{0}.png', (576, 224)))
+                return  list_en
+
+
 

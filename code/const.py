@@ -16,7 +16,6 @@ ENTITY_SPEED = {
 }
 #
 MENU_OPTION =('Start',
-              'Score',
               'Exit'
 )
 

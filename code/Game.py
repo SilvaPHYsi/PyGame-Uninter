@@ -1,5 +1,6 @@
 import pygame
 
+from code.EntityFactory import EntityFactory
 from code.Level import Level
 from code.Menu import Menu
 from code.const import WIN_HEIGHT, WIN_WEIGHT, MENU_OPTION
@@ -22,10 +23,10 @@ class Game:
             menu = Menu(self.menu)
             menu_return = menu.run()
 
-            if menu_return in [MENU_OPTION[0], MENU_OPTION[1]]:
+            if menu_return in [MENU_OPTION[0]]:
                 level = Level(self.menu, 'level1', menu_return)
                 level.run()
-            elif menu_return == MENU_OPTION[2]:
+            elif menu_return == MENU_OPTION[1]:
                 self.running = False  # Alterando para finalizar o jogo ao escolher sair do menu
         pygame.quit()  # Finaliza o Pygame de forma segura após sair do loop principal
 
